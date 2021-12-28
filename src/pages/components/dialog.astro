@@ -1,0 +1,204 @@
+---
+import DocsLayout from '$layouts/DocsLayout.astro';
+---
+<DocsLayout
+  title="Dialog (Modal)"
+  downloadUrl="/components/dialog.js"
+  alpineName="dialog"
+  isFunction={true}
+>
+  <div slot="preview">
+    <button
+      x-data
+      @click="$dispatch('dialog', 'activationModal')"
+      class="
+        disabled:cursor-not-allowed disabled:opacity-60
+        shadow-sm
+        inline-flex
+        py-2
+        px-6
+        bg-white
+        rounded-lg
+        text-gray-700
+        font-medium
+        tracking-wide
+        active:scale-90
+        transition
+        hover:bg-gray-50
+        focus:ring-2
+        ring-offset-2 ring-primary-600
+        border border-gray-300
+        outline-none
+      "
+    >
+      Open Modal
+    </button>
+    <div x-data="dialog('activationModal')">
+      <template x-teleport="body">
+        <div x-bind="dialog" class="fixed inset-0 z-10 overflow-y-auto">
+          <div class="flex items-center justify-center min-h-screen py-6">
+            <div
+              x-bind="dialogOverlay"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0"
+              x-transition:enter-end="opacity-100"
+              x-transition:leave="transition ease-in duration-300"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+              class="fixed inset-0 bg-gray-800/90"
+            ></div>
+            <span className="inline-block h-screen align-middle" aria-hidden="true">
+              &#8203;
+            </span>
+            <div
+              x-bind="dialogContent"
+              @click.outside="open = false"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 scale-95"
+              x-transition:enter-end="opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-300"
+              x-transition:leave-start="opacity-100 scale-100"
+              x-transition:leave-end="opacity-0 scale-95"
+              class="
+                relative
+                bg-white
+                rounded-xl
+                mx-auto
+                overflow-hidden
+                max-w-md
+                w-full
+                px-6
+                pt-4
+              "
+            >
+              <div class="flex items-center justify-between">
+                <h3
+                  x-bind="dialogTitle"
+                  class="font-semibold text-lg text-gray-700 tracking-wider"
+                >
+                  Activate User
+                </h3>
+                <button
+                  @click="open = false"
+                  class="
+                    inline-flex
+                    transition
+                    rounded-lg
+                    outline-none
+                    disabled:cursor-not-allowed disabled:opacity-60
+                    active:scale-90
+                    focus:ring-2
+                    p-3
+                    sm:p-2
+                    text-gray-700
+                    border border-transparent
+                    ring-primary-600
+                    hover:bg-gray-100
+                    ml-8
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M20 20L4 4m16 0L4 20" />
+                  </svg>
+                  <span class="sr-only"> Close </span>
+                </button>
+              </div>
+              <div x-bind="dialogDescription" class="sr-only">Confirm the activation of the user</div>
+              <p class="text-gray-600 mt-2 text-sm">
+                Are you sure you want to activate this user? The selected user will be
+                able to log in to the system.
+              </p>
+              <div
+                class="
+                  flex
+                  text-sm
+                  items-center
+                  justify-between
+                  px-6
+                  py-4
+                  mt-4
+                  -mx-6
+                  bg-gray-50
+                "
+              >
+                <button
+                  @click="open = false"
+                  class="
+                    font-medium
+                    outline-none
+                    focus:ring-2
+                    rounded
+                    text-gray-500
+                    hover:text-gray-600
+                    ring-danger-600
+                  "
+                >
+                  Cancel
+                </button>
+                <button
+                  @click="alert('Activated!')"
+                  x-ref="initialFocus"
+                  class="
+                    disabled:opacity-60
+                    inline-flex
+                    rounded-lg
+                    font-medium
+                    active:scale-90
+                    transition
+                    outline-none
+                    focus:ring-2
+                    tracking-wide
+                    disabled:cursor-not-allowed
+                    py-3
+                    sm:py-2
+                    px-6
+                    bg-primary-600
+                    hover:bg-primary-700
+                    text-white
+                    border border-transparent
+                    ring-primary-600 ring-offset-2
+                    shadow-sm
+                  "
+                >
+                  Activate
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+  <code data-language="html" slot="import" class="language-html">&lt;script defer src="https://unpkg.com/@alpinejs/trap@3.x.x/dist/cdn.min.js"&gt;&lt;/script&gt;
+&lt;script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"&gt;&lt;/script&gt;
+&lt;script src="path/to/dialog.js"&gt;&lt;/script&gt;</code>
+  <code data-language="html" slot="code" class="language-html">&lt;button x-data @click="$dispatch('dialog', 'activation')"&gt;
+  Open Dialog
+&lt;/button&gt;
+&lt;div x-data="dialog('activation')"&gt;
+  &lt;template x-teleport="body"&gt;
+    &lt;div x-bind="dialog"&gt;
+      &lt;div x-bind="dialogOverlay"&gt;&lt;/div&gt;
+      &lt;div x-bind="dialogContent"&gt;
+        &lt;div x-bind="dialogTitle"&gt;Activate User&lt;/div&gt;
+        &lt;div x-bind="dialogDescription"&gt;Confirm the activation of the user&lt;/div&gt;
+        &lt;p&gt;
+          Are you sure you want to activate this user? The selected user will be able to log in to the system.
+        &lt;/p&gt;
+        &lt;button @click="open = false"&gt;Cancel&lt;/button&gt;
+        &lt;button @click="alert('Activated!');"&gt;Activate&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;template&gt;
+&lt;/div&gt;</code>
+</DocsLayout>

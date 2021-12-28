@@ -1,0 +1,42 @@
+---
+import BaseHead from '$components/BaseHead.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead />
+  </head>
+  <body>
+    <div class="container px-6 mx-auto mt-8">
+      <header>
+        <h1 class="text-2xl font-bold text-gray-700">Bind UI - Easy to Use Unstyled Alpine Components</h1>
+        <p class="text-xl text-gray-500">
+          By <a href="https://github.com/itsfaqih" target="__blank" rel="noreferrer" class="font-medium text-primary-600">@itsfaqih</a>
+        </p>
+      </header>
+      <main class="mt-6 space-y-6">
+        <section id="features">
+          <h2 class="text-xl font-bold text-gray-700">Features</h2>
+          <ul class="mt-2 space-y-2">
+            <li>✅ Keyboard navigation support</li>
+            <li>✅ A11y attributes (auto generated ids and aria)</li>
+            <li>✅ Customizable and unstyled</li>
+          </ul>
+        </section>
+        <section id="components">
+          <h2 class="text-xl font-bold text-gray-700">Components<span class="ml-1 text-gray-400">(A-Z)</span></h2>
+          <ul class="mt-2 space-y-2">
+            <li>✅ <a href="/components/dialog/">Dialog (Modal)</a></li>
+            <li>🚧 Disclosure</li>
+            <li>✅ <a href="/components/listbox/">Listbox (Select)</a></li>
+            <li>✅ <a href="/components/menu/">Menu (Dropdown)</a></li>
+            <li>✅ <a href="/components/popover/">Popover</a></li>
+            <li>🚧 Radio Group</li>
+            <li>🚧 Switch (Toggle)</li>
+            <li>✅ <a href="/components/tabs/">Tabs</a></li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

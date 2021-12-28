@@ -1,0 +1,192 @@
+---
+import DocsLayout from '$layouts/DocsLayout.astro';
+---
+<DocsLayout
+  title="Popover"
+  downloadUrl="/components/popover.js"
+  alpineName="popover"
+>
+  <div slot="preview">
+    <div x-data="popover" x-bind="popover" class="relative">
+      <button
+        x-bind="popoverButton"
+        class="
+          inline-flex
+          transition
+          rounded-lg
+          outline-none
+          disabled:cursor-not-allowed disabled:opacity-60
+          active:scale-90
+          focus:ring-2
+          p-3
+          sm:p-2
+          text-gray-700
+          border border-transparent
+          ring-primary-600
+          hover:bg-gray-100
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          class="w-5 h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M12.721 5.003L11.255 5c-3.344-.008-6.247 2.709-6.27 6v3.79c0 .79-.1 1.561-.531 2.218l-.287.438C3.73 18.11 4.2 19 4.985 19h14.03c.785 0 1.254-.89.818-1.554l-.287-.438c-.43-.657-.531-1.429-.531-2.219v-3.788c-.04-3.292-2.95-5.99-6.294-5.998z"
+          ></path>
+          <path d="M15 19a3 3 0 1 1-6 0"></path>
+          <path d="M12 2a2 2 0 0 1 2 2v1h-4V4a2 2 0 0 1 2-2z"></path></svg
+        ><span class="sr-only">Toggle notifications</span>
+      </button>
+      <div
+        x-bind="popoverPanel"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 translate-y-1"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 translate-y-1"
+        x-cloak
+        class="
+          absolute
+          right-0
+          w-full
+          h-full
+          p-1
+          mt-4
+          overflow-y-auto
+          bg-white
+          shadow
+          outline-none
+          sm:mt-3 sm:rounded-lg sm:h-56 sm:absolute sm:w-72
+        "
+      >
+        <a
+          href="#"
+          class="
+            flex
+            items-center
+            p-3
+            rounded-lg
+            outline-none
+            focus:ring-2 focus:z-10 focus:relative
+            ring-primary-600
+            hover:bg-gray-50
+          "
+          ><span class="block p-3 rounded-lg bg-success-100 text-success-800"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="7" r="5"></circle>
+              <path
+                d="M17 22H5.266a2 2 0 0 1-1.985-2.248l.39-3.124A3 3 0 0 1 6.649 14H7"
+              ></path>
+              <path d="M19 13v6"></path>
+              <path d="M16 16h6"></path></svg></span
+          ><span class="flex flex-col ml-3"
+            ><span class="font-medium leading-tight text-gray-700"
+              >New user registered</span
+            ><span class="mt-1 text-gray-500">2 min ago</span></span
+          ></a
+        >
+        <a
+          href="#"
+          class="
+            flex
+            items-center
+            p-3
+            rounded-lg
+            outline-none
+            focus:ring-2 focus:z-10 focus:relative
+            ring-primary-600
+            hover:bg-gray-50
+          "
+          ><span class="block p-3 rounded-lg bg-info-100 text-info-800"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M3.977 9.84A2 2 0 0 1 5.971 8h12.058a2 2 0 0 1 1.994 1.84l.803 10A2 2 0 0 1 18.833 22H5.167a2 2 0 0 1-1.993-2.16l.803-10z"
+              ></path>
+              <path d="M16 11V6a4 4 0 0 0-4-4v0a4 4 0 0 0-4 4v5"></path></svg></span
+          ><span class="flex flex-col ml-3"
+            ><span class="font-medium leading-tight text-gray-700"
+              >New order received</span
+            ><span class="mt-1 text-gray-500">5 min ago</span></span
+          ></a
+        >
+        <a
+          href="#"
+          class="
+            flex
+            items-center
+            p-3
+            rounded-lg
+            outline-none
+            focus:ring-2 focus:z-10 focus:relative
+            ring-primary-600
+            hover:bg-gray-50
+          "
+          ><span class="block p-3 rounded-lg bg-warning-100 text-warning-800"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M11.029 2.54a2 2 0 0 1 1.942 0l7.515 4.174a1 1 0 0 1 .514.874v8.235a2 2 0 0 1-1.029 1.748l-7 3.89a2 2 0 0 1-1.942 0l-7-3.89A2 2 0 0 1 3 15.824V7.588a1 1 0 0 1 .514-.874L11.03 2.54z"
+              ></path>
+              <path d="M3 7l9 5m0 0l9-5m-9 5v9.5"></path>
+              <path d="M7.5 9.5l9-5"></path>
+              <path d="M6 12.328L9 14"></path></svg></span
+          ><span class="flex flex-col ml-3"
+            ><span class="font-medium leading-tight text-gray-700"
+              >Order #R-2384 need to be processed</span
+            ><span class="mt-1 text-gray-500">14 min ago</span></span
+          ></a
+        >
+      </div>
+    </div>
+  </div>
+  <code data-language="html" slot="import" class="language-html">&lt;script defer src="https://unpkg.com/@alpinejs/trap@3.x.x/dist/cdn.min.js"&gt;&lt;/script&gt;
+&lt;script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"&gt;&lt;/script&gt;
+&lt;script src="path/to/popover.js"&gt;&lt;/script&gt;</code>
+  <code data-language="html" slot="code" class="language-html">&lt;div x-data="popover" x-bind="popover"&gt;
+  &lt;button x-bind="popoverButton"&gt;
+    Notification
+  &lt;/button&gt;
+  &lt;div x-bind="popoverPanel" x-transition x-cloak&gt;
+    &lt;a href="#"&gt;New user registered&lt;/a&gt;
+    &lt;a href="#"&gt;New order received&lt;/a&gt;
+    &lt;a href="#"&gt;Order #123 need to be processed&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+</DocsLayout>

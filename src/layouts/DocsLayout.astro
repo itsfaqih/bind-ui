@@ -1,0 +1,56 @@
+---
+import BaseHead from '$components/BaseHead.astro';
+
+const { title, downloadUrl, alpineName, isFunction = false } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} />
+  </head>
+  <body>
+    <div class="container px-6 mx-auto mt-8">
+      <a href="/" class="font-medium text-primary-600">&larr; Back</a>
+      <div class="mt-3">
+        <h1 class="text-2xl font-bold text-gray-700">{title}</h1>
+        <main class="mt-4 space-y-8">
+          <section id="preview">
+            <h2 class="text-lg font-bold text-gray-700">Preview</h2>
+            <div class="flex justify-center h-64 p-12 mt-4 text-sm bg-gray-100 rounded-xl">
+              <slot name="preview" />
+            </div>
+          </section>
+          <section id="installation">
+            <h2 class="text-lg font-bold text-gray-700">Installation</h2>
+            <ol class="mt-3 space-y-2 text-gray-700 list-decimal list-inside">
+              <li>
+                <a href={downloadUrl} class="font-medium text-primary-600"
+                  >Download the script</a
+                >
+              </li>
+              <li>
+                Add it to your code below the alpine's script tag.
+                <pre class="block p-6 mt-3 text-sm text-gray-100 bg-gray-900 rounded-xl overflow-x-auto"><slot name="import"/></pre>
+              </li>
+              <li>
+                Now, the <code class="p-1 bg-gray-100 rounded-lg">{alpineName}</code> data is registered in
+                your code. Use it as a {isFunction ? 'function' : 'value'} in
+                <code class="p-1 bg-gray-100 rounded-lg">x-data</code> attribute like the example
+                below.
+              </li>
+            </ol>
+          </section>
+          <section id="code">
+            <h2 class="text-lg font-bold text-gray-700">
+              Code<span class="ml-1 text-gray-400">(Unstyled)</span>
+            </h2>
+            <div class="mt-4 space-y-6">
+              <pre class="block p-6 text-sm text-gray-100 bg-gray-900 rounded-xl overflow-x-auto"><slot name="code"/></pre>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script type="module" src={Astro.resolve('../scripts/main.js')}></script>
+  </body>
+</html>

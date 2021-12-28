@@ -1,0 +1,190 @@
+---
+import DocsLayout from '$layouts/DocsLayout.astro';
+---
+<DocsLayout
+  title="Listbox (Select)"
+  downloadUrl="/components/listbox.js"
+  alpineName="listbox"
+>
+  <div slot="preview">
+    <div
+      x-data="listbox"
+      x-bind="listbox"
+      data-value='{"id": "grape", "name": "🍇 Grape"}'
+      class="relative w-52"
+    >
+      <button
+        x-bind="listboxButton"
+        class="
+          w-full
+          disabled:cursor-not-allowed
+          disabled:opacity-60
+          shadow-sm
+          inline-flex
+          items-center
+          justify-between
+          py-2
+          px-4
+          bg-white
+          rounded-lg
+          text-gray-700
+          font-medium
+          tracking-wide
+          transition
+          focus:ring-2
+          ring-primary-600
+          border border-gray-300
+          focus:border-transparent
+          outline-none
+          truncate
+          cursor-default
+        "
+      >
+        <span x-text="selected.name"></span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 ml-4 text-gray-500"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M8 17l4 4 4-4" />
+          <path d="M8 7l4-4 4 4" />
+        </svg>
+      </button>
+      <ul
+        x-bind="listboxOptions"
+        x-cloak
+        class="w-full absolute right-0 bg-white shadow-md rounded-lg mt-2 py-1 outline-none"
+      >
+        <li
+          x-bind="listboxOption"
+          data-value='{"id": "apple", "name": "🍎 Apple"}'
+          class="
+            relative
+            cursor-default
+            w-full
+            flex
+            items-center
+            text-left
+            py-2
+            pl-10
+            pr-3
+            hover:bg-primary-100 hover:text-primary-800
+            outline-none
+            focus:bg-primary-100 focus:text-primary-800
+          "
+        >
+          <svg
+            x-show="selected()"
+            xmlns="http://www.w3.org/2000/svg"
+            class="left-3 absolute text-primary-600 w-4 h-4 mr-2"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M4 12l6 6L20 6" />
+          </svg>
+          🍎 Apple
+        </li>
+        <li
+          x-bind="listboxOption"
+          data-value='{"id": "grape", "name": "🍇 Grape"}'
+          class="
+            relative
+            cursor-default
+            w-full
+            flex
+            items-center
+            text-left
+            py-2
+            pl-10
+            pr-3
+            hover:bg-primary-100 hover:text-primary-800
+            outline-none
+            focus:bg-primary-100 focus:text-primary-800
+          "
+        >
+          <svg
+            x-show="selected()"
+            xmlns="http://www.w3.org/2000/svg"
+            class="left-3 absolute text-primary-600 w-4 h-4 mr-2"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M4 12l6 6L20 6" />
+          </svg>
+          🍇 Grape
+        </li>
+        <li
+          x-bind="listboxOption"
+          data-value='{"id": "orange", "name": "🍊 Orange"}'
+          class="
+            relative
+            cursor-default
+            w-full
+            flex
+            items-center
+            text-left
+            py-2
+            pl-10
+            pr-3
+            hover:bg-primary-100 hover:text-primary-800
+            outline-none
+            focus:bg-primary-100 focus:text-primary-800
+          "
+        >
+          <svg
+            x-show="selected()"
+            xmlns="http://www.w3.org/2000/svg"
+            class="left-3 absolute text-primary-600 w-4 h-4 mr-2"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M4 12l6 6L20 6" />
+          </svg>
+          🍊 Orange
+        </li>
+      </ul>
+    </div>
+  </div>
+  <code data-language="html" slot="import" class="language-html">&lt;script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"&gt;&lt;/script&gt;
+&lt;script src="path/to/listbox.js"&gt;&lt;/script&gt;</code>
+  <code data-language="html" slot="code" class="language-html">&lt;div x-data="listbox" x-bind="listbox" data-value='&lcub;"id": "apple", "name": "🍎 Apple"&rcub;'&gt;
+  &lt;input type="hidden" name="fruit" :value="selected.id" /&gt;
+  &lt;button x-bind="listboxButton" x-text="selected.name"&gt;
+  &lt;/button&gt;
+  &lt;ul x-bind="listboxOptions"&gt;
+    &lt;li x-bind="listboxOption" data-value='&lcub;"id": "apple", "name": "🍎 Apple"&rcub;'&gt;
+      &lt;span x-show="selected()"&gt;✅&lt;/span&gt;
+      🍎 Apple
+    &lt;/li&gt;
+    &lt;li x-bind="listboxOption" data-value='&lcub;"id": "grape", "name": "🍇 Grape"&rcub;'&gt;
+      &lt;span x-show="selected()"&gt;✅&lt;/span&gt;
+      🍇 Grape
+    &lt;/li&gt;
+    &lt;li x-bind="listboxOption" data-value='&lcub;"id": "orange", "name": "🍊 Orange"&rcub;'&gt;
+      &lt;span x-show="selected()"&gt;✅&lt;/span&gt;
+      🍊 Orange
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code>
+</DocsLayout>

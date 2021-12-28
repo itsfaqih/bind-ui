@@ -1,0 +1,100 @@
+---
+import DocsLayout from '$layouts/DocsLayout.astro';
+---
+<DocsLayout
+  title="Tabs"
+  downloadUrl="/components/tabs.js"
+  alpineName="tabs"
+>
+  <div slot="preview">
+    <div x-data="tabs" x-bind="tabGroup" class="bg-white rounded-xl border">
+      <div x-bind="tabList" class="text-sm flex">
+        <button
+          x-bind="tab"
+          class="
+            transition
+            font-medium
+            px-8
+            py-3
+            border-b-2
+            hover:bg-primary-50
+            outline-none
+            focus:ring-2
+            ring-primary-600
+            first:rounded-tl-lg
+            last:rounded-tr-lg
+          "
+          :class="{
+            'border-primary-600 text-primary-600': selected(),
+            'border-gray-300 hover:border-primary-600 text-gray-500 hover:text-primary-600': !selected()
+          }"
+        >
+          Recent
+        </button>
+        <button
+          x-bind="tab"
+          class="
+            transition
+            font-medium
+            px-8
+            py-3
+            border-b-2
+            hover:bg-primary-50
+            outline-none
+            focus:ring-2
+            ring-primary-600
+            first:rounded-tl-lg
+            last:rounded-tr-lg
+          "
+          :class="{
+            'border-primary-600 text-primary-600': selected(),
+            'border-gray-300 hover:border-primary-600 text-gray-500 hover:text-primary-600': !selected()
+          }"
+        >
+          Popular
+        </button>
+        <button
+          x-bind="tab"
+          class="
+            transition
+            font-medium
+            px-8
+            py-3
+            border-b-2
+            hover:bg-primary-50
+            outline-none
+            focus:ring-2
+            ring-primary-600
+            first:rounded-tl-lg
+            last:rounded-tr-lg
+          "
+          :class="{
+            'border-primary-600 text-primary-600': selected(),
+            'border-gray-300 hover:border-primary-600 text-gray-500 hover:text-primary-600': !selected()
+          }"
+        >
+          Trending
+        </button>
+      </div>
+      <div x-bind="tabPanels" x-cloak class="p-4">
+        <div x-bind="tabPanel">Content 1</div>
+        <div x-bind="tabPanel">Content 2</div>
+        <div x-bind="tabPanel">Content 3</div>
+      </div>
+    </div>
+  </div>
+  <code data-language="html" slot="import" class="language-html">&lt;script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"&gt;&lt;/script&gt;
+&lt;script src="path/to/tabs.js"&gt;&lt;/script&gt;</code>
+  <code data-language="html" slot="code" class="language-html">&lt;div x-data="tabs" x-bind="tabGroup"&gt;
+  &lt;div x-bind="tabList"&gt;
+    &lt;button x-bind="tab"&gt;Tab 1&lt;/button&gt;
+    &lt;button x-bind="tab"&gt;Tab 2&lt;/button&gt;
+    &lt;button x-bind="tab"&gt;Tab 3&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div x-bind="tabPanels"&gt;
+    &lt;div x-bind="tabPanel"&gt;Content 1&lt;/div&gt;
+    &lt;div x-bind="tabPanel"&gt;Content 2&lt;/div&gt;
+    &lt;div x-bind="tabPanel"&gt;Content 3&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+</DocsLayout>
