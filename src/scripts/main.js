@@ -8,6 +8,7 @@ import listbox from './libs/listbox';
 import menu from './libs/menu';
 import popover from './libs/popover';
 import tabs from './libs/tabs';
+import toggle from './libs/toggle';
 
 Alpine.plugin(trap);
 
@@ -16,5 +17,6 @@ Alpine.data('listbox', listbox);
 Alpine.data('menu', menu);
 Alpine.data('popover', popover);
 Alpine.data('tabs', tabs);
+Alpine.data('toggle', toggle);
 
 Alpine.start();

@@ -1,0 +1,29 @@
+---
+import DocsLayout from '$layouts/DocsLayout.astro';
+---
+<DocsLayout
+  title="Toggle (Switch)"
+  downloadUrl="/components/toggle.js"
+  alpineName="toggle"
+  isFunction={true}
+>
+  <div slot="preview">
+    <button
+      x-data="toggle"
+      x-bind="toggle"
+      class="inline-flex items-center transition-colors w-11 h-6 rounded-full outline-none focus:ring-2 ring-blue-600 ring-offset-2"
+      :class="{'bg-primary-600': checked, 'bg-gray-300': !checked}"
+    >
+      <span class="sr-only">Enable</span>
+      <span aria-hidden="true" class="w-4 h-4 transition-transform bg-white rounded-full" :class="{ 'translate-x-6': checked, 'translate-x-1': !checked }"></span>
+    </button>
+  </div>
+  <code data-language="html" slot="import" class="language-html">&lt;script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"&gt;&lt;/script&gt;
+&lt;script src="path/to/toggle.js"&gt;&lt;/script&gt;</code>
+  <code data-language="html" slot="code" class="language-html">&lt;button
+  x-data="toggle"
+  x-bind="toggle"
+&gt;
+  &lt;span x-text="checked ? 'Enabled' : 'Disabled'"&gt;&lt;/span&gt;
+&lt;/button&gt;</code>
+</DocsLayout>

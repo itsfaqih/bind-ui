@@ -22,6 +22,6 @@ Collection of unstyled and accessible AlpineJS components inspired by [Headless 
 
 🚧 Radio Group
 
-🚧 Switch (Toggle)
-
 ✅ Tabs
+
+🚧 Toggle (Switch)
