@@ -24,4 +24,4 @@ Collection of unstyled and accessible AlpineJS components inspired by [Headless 
 
 ✅ Tabs
 
-🚧 Toggle (Switch)
+✅ Toggle (Switch)
